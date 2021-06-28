@@ -2,9 +2,8 @@ package com.platzi.jobsearch.cli;
 
 import com.beust.jcommander.Parameter;
 
-public class CLIArguments {
+public final class CLIArguments {
     CLIArguments() {
-
     }
 
     @Parameter(
@@ -13,35 +12,30 @@ public class CLIArguments {
             description = "KEYWORD",
             validateWith = CLIKeywordValidator.class
     )
-
     private String keyword;
 
     @Parameter(
             names = {"--location", "-l"},
             description = "Cada busqueda puede incluir una ubicacion"
     )
-
     private String location;
 
     @Parameter(
             names = {"--page", "-p"},
             description = "La API devuelve 50 resultados, usa un numero para la pagina"
     )
-
     private int page = 0;
 
     @Parameter(
             names = {"--Full-time"},
             description = "Agregar si queremos trabajos de tiempo completo"
     )
-
     private boolean isFullTime = false;
 
     @Parameter(
             names = "--markdown",
             description = "Obtener los resultados en markdown"
     )
-
     private boolean isMarkdown = false;
 
     @Parameter(
@@ -50,8 +44,7 @@ public class CLIArguments {
             validateWith = CLIHelpValidator.class,
             description = "Mostrar esta ayuda"
     )
-
-    private boolean isHelp;
+    private boolean help;
 
     public String getKeyword() {
         return keyword;
@@ -74,7 +67,7 @@ public class CLIArguments {
     }
 
     public boolean isHelp() {
-        return isHelp;
+        return help;
     }
 
     @Override
@@ -82,10 +75,10 @@ public class CLIArguments {
         return "CLIArguments{" +
                 "keyword='" + keyword + '\'' +
                 ", location='" + location + '\'' +
-                ", page=" + page +
+                ", pages=" + page +
                 ", isFullTime=" + isFullTime +
+                ", help=" + help +
                 ", isMarkdown=" + isMarkdown +
-                ", isHelp=" + isHelp +
                 '}';
     }
 
