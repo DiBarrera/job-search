@@ -58,7 +58,7 @@ This repository is divided into the following parts.
 ```shell
 $ mkdir functional-java
 $ cd functional-java
-$ git clone https://github.com/DiBarrera/job-search
+$ git clone https://github.com/DiBarrera/job-search.git
 ```
 
 You will find the following files:
