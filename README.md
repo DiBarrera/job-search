@@ -118,10 +118,110 @@ public static int sum(int x, int y) {
 ``` 
 
 #### Lambda functions
-Lambda functions are anonymous functions, they have no name..
+Lambda functions are anonymous functions, they have no name.
 ```markdown
 useAFunction((x, y) -> x * y);
 }
+``` 
+
+#### Creating a function
+Functions do not receive or return primitive data as parameters, but objects.
+```markdown
+// Parameter
+    |     // Data that returns
+    |       |       // Name
+    |       |         |
+Function<Integer, Integer> square = new Function<Integer, Integer>() {
+  @Override   // <--- Function in an interface, which allows us to overwrite its method.
+  public Integer apply(Integer x) {
+    return x * x;   // <--- Body of the function
+  }
+}
+``` 
+
+#### Invoke the function
+Functions do not receive or return primitive data as parameters, but objects.
+```markdown
+System.out.println(square.apply(5));   // <--- The apply() method receives the parameter required by the function and executes.
+``` 
+
+#### Predicate
+The predicate interface returns a boolean object.
+```markdown
+                            // Parameter
+                            |
+Predicate<Integer> isEven = x -> x % 2 == 0;
+                                 |
+                                // Evaluate if the expression is true
+isEven.test(4);
+``` 
+
+#### Consumer.
+Consumer is a generic interface that allows us to generate simple functions. It takes or consumes a data but does not return any value.
+```markdown
+  // Data to be consumed
+    |                     // Name
+    |                      |              // Parameter
+    |                      |              |
+Consumer<CLIArgument> consumerHelper = cliArguments1 -> {
+  if(cliArguments1.isHelp()) {              // How the data
+    System.out.println("Data requested");   // will be consumed
+  }
+  consumerHelper.accept(cliArguments);
+}               |
+                // To invoke the conusmer we use the accept() method
+``` 
+
+#### Supplier.
+Supplier is an interface that does not allow you to create functions that do not require knowing the origin of the data. It does not receive a parameter but it returns a data type.
+```markdown
+          // Data to be generated
+          |               // Name
+          |               |        // Indicates that it does not receive any data
+          |               |        |
+Supplier<CLIArguments> generator = () -> nes CLIArguments();
+  return generator.get();
+            |
+            // Return the supplier with the get method
+``` 
+
+#### UnaryOperator.
+UnaryOperator is a type of operator that works on a single type of data and returns the same type of data.
+```markdown
+                // Data on which it works
+                |       // Name
+                |       |       // Parameter
+                |       |       |
+UnaryOperator<String> quote = text -> "\" + text + "\";
+                                      |
+                                      // Return
+  System.out.println(quote.apply("This is the data"));
+``` 
+
+#### BinaryOperator.
+BinaryOperator Receive two types of data and return two types of data.
+```markdown
+                                   // Parameters
+                                   |          // Return
+                                   |          |
+BinaryOperator<Integer> multiply = (x, y) -> x * y;
+  System.out.println(multiply.apply(2, 3));
+``` 
+
+#### BiFunction.
+Another very common case is that the parameters required by our functions are not necessarily of the same type, in these situations BiFunction is of great help.
+```markdown
+            // Data to be received
+            |         |       // Data to be received
+            |         |       |
+BiFunction<String, Integer, String> leftPad = (s, i) -> String.format("%" + i + "s", s);
+                                                |           |
+                                                |           // Return
+                                                // Parameters
+
+System.out.println(
+  leftPad.apply("Hello", 10)
+);
 ``` 
 
 
@@ -133,7 +233,27 @@ useAFunction((x, y) -> x * y);
 - Design functions for data transformation.
 - Discover Java classes and packages for functional programming.
 - Create a fully functional application.
-
+- Pure functions.
+- Side effects.
+- High order functions.
+- Lambda functions.
+- Data immutability.
+- Predicate.
+- Supplier.
+- UnaryOperator and BinaryOperator.
+- BiFunctions.
+- SAM (Single Abstract Method).
+- FunctionalInterface.
+- Reference operator.
+- Default methods in interfaces.
+- Composition of functions.
+- Optional class.
+- Streams.
+- Specific type stream and parallelism.
+- Terminal operations.
+- Intermediate operations.
+- Collectors.
+- Final operations.
 
 
 
