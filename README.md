@@ -71,7 +71,7 @@ You will find the following files:
 <!-- Topics reviewed -->
 ## Topics reviewed
 
-In this repository you will find sql files that were varied exercises to practice searching for data in databases in different ways. The topics are made up of the different ways to do these searches. Topics such as a brief history of databases, the different types of databases, services, and other fundamental topics for a better general understanding about databases were also included.
+In this repository you will find the progress in commits on the use of functional programming, covering the different topics listed below.
 
 ### Topics
 
