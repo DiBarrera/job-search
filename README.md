@@ -66,6 +66,61 @@ You will find the following files:
 - **A gradle directory**, that contains the files necessary for the operation of the application.
 - **The src directory** containing the main files of the job-search project development.
 
+---------
+
+### Run the project with gradle.
+
+- To run the project we need to indicate to gradle which is the main class to use.
+- Inside our src directory, we create the following route of directorys: main -> java
+- In our java directory, we create the package that will contain the main class, we name it JobSearch.
+- In our JobSerach class, insert the next lines:
+#### JobSearch.java
+```shell
+public class JobSearch {
+    public static void main(String[] args) {
+        System.out.println("Hello Job Search");
+    }
+}
+``` 
+- In our build.gradle file, we write the following lines.
+#### build.gradle
+```shell
+application {
+    mainClassName = "com.platzi.jobsearch.JobSearch"
+}
+``` 
+- In application section, we are telling gradle the name of the main class.
+- Once the main class is defined, in our IDE we look for the gradle panel, where we will see the different tasks that gradle can do. To run the program, we go to the application part and select the run option.
+<img src="/docs/java-functional-output1.png" alt="Application run"/>
+- Gradle will compile the project and execute the main method.
+<img src="/docs/java-functional-output2.png" alt="Hello Job Search"/>
+
+---------
+
+### Implementing libraries.
+
+- The libraries that we will use are: JCommander, Feign-core and Feign-gson.
+- To add the libraries, we can search all of them in the following link:
+- [https://mvnrepository.com/](https://mvnrepository.com/)
+- To save the search, you can click directly on these links: [JCommander](https://mvnrepository.com/artifact/com.beust/jcommander/1.78), [Feign-core](https://mvnrepository.com/artifact/io.github.openfeign/feign-core/10.9), and [Feign-gson](https://mvnrepository.com/artifact/io.github.openfeign/feign-gson/10.9).
+- To implement the libraries, just copy and paste the corresponding lines into the dependencies section in build.gradle
+#### build.gradle
+```shell
+dependencies {
+    // https://mvnrepository.com/artifact/com.beust/jcommander
+    implementation group: 'com.beust', name: 'jcommander', version: '1.78'
+
+    // https://mvnrepository.com/artifact/io.github.openfeign/feign-core
+    implementation group: 'io.github.openfeign', name: 'feign-core', version: '11.0'
+
+    // https://mvnrepository.com/artifact/io.github.openfeign/feign-gson
+    implementation group: 'io.github.openfeign', name: 'feign-gson', version: '11.0'
+}
+``` 
+
+---------
+
+
 
 
 <!-- Topics reviewed -->
@@ -111,7 +166,7 @@ In this repository you will find the progress in commits on the use of functiona
 
 #### Pure functions
 Pure functions generate the same result for the same parameter.
-```markdown
+```shell
 public static int sum(int x, int y) {
   return x + y;
 }
@@ -119,14 +174,14 @@ public static int sum(int x, int y) {
 
 #### Lambda functions
 Lambda functions are anonymous functions, they have no name.
-```markdown
+```shell
 useAFunction((x, y) -> x * y);
 }
 ``` 
 
 #### Creating a function
 Functions do not receive or return primitive data as parameters, but objects.
-```markdown
+```shell
 // Parameter
     |     // Data that returns
     |       |       // Name
@@ -141,13 +196,13 @@ Function<Integer, Integer> square = new Function<Integer, Integer>() {
 
 #### Invoke the function
 Functions do not receive or return primitive data as parameters, but objects.
-```markdown
+```shell
 System.out.println(square.apply(5));   // <--- The apply() method receives the parameter required by the function and executes.
 ``` 
 
 #### Predicate
 The predicate interface returns a boolean object.
-```markdown
+```shell
                             // Parameter
                             |
 Predicate<Integer> isEven = x -> x % 2 == 0;
@@ -158,7 +213,7 @@ isEven.test(4);
 
 #### Consumer.
 Consumer is a generic interface that allows us to generate simple functions. It takes or consumes a data but does not return any value.
-```markdown
+```shell
   // Data to be consumed
     |                     // Name
     |                      |              // Parameter
@@ -174,7 +229,7 @@ Consumer<CLIArgument> consumerHelper = cliArguments1 -> {
 
 #### Supplier.
 Supplier is an interface that does not allow you to create functions that do not require knowing the origin of the data. It does not receive a parameter but it returns a data type.
-```markdown
+```shell
           // Data to be generated
           |               // Name
           |               |        // Indicates that it does not receive any data
@@ -187,7 +242,7 @@ Supplier<CLIArguments> generator = () -> nes CLIArguments();
 
 #### UnaryOperator.
 UnaryOperator is a type of operator that works on a single type of data and returns the same type of data.
-```markdown
+```shell
                 // Data on which it works
                 |       // Name
                 |       |       // Parameter
@@ -200,7 +255,7 @@ UnaryOperator<String> quote = text -> "\" + text + "\";
 
 #### BinaryOperator.
 BinaryOperator Receive two types of data and return two types of data.
-```markdown
+```shell
                                    // Parameters
                                    |          // Return
                                    |          |
@@ -210,7 +265,7 @@ BinaryOperator<Integer> multiply = (x, y) -> x * y;
 
 #### BiFunction.
 Another very common case is that the parameters required by our functions are not necessarily of the same type, in these situations BiFunction is of great help.
-```markdown
+```shell
             // Data to be received
             |         |       // Data to be received
             |         |       |
