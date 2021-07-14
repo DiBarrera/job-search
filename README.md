@@ -120,8 +120,40 @@ dependencies {
 
 ---------
 
+### Running the program.
 
+- To start running the program, we go to the gradle panel, in the distribution task we have the distZip option, this option allows us to generate a zip for our terminal tool.
+<img src="/docs/java-functional-output3.png" alt="distZip"/>
+- When executing, gradle generates a distributions directory with the zip file inside our build directory.
+<img src="/docs/java-functional-output4.png" alt="build distributions job-search zip"/>
+- Now you have to run this executable file as a terminal tool.
+- In the terminal, we enter the build folder.
+```shell
+$ cd build
+``` 
+- And then to distributions.
+```shell
+$ cd distributions
+``` 
+- Here we find the generated zip file.
+- We open it with the following command.
+```shell
+$ unzip job-search-0.1.0.zip
+``` 
+- We enter the unziped direcotry.
+```shell
+$ cd job-search-0.1.0.zip
+``` 
+- We move to the binaries.
+```shell
+$ cd bin
+``` 
 
+---------
+
+# Notes: This link si for special notes for the execution of the program in terminal: [job-search-notes](https://github.com/DiBarrera/job-search-notes)
+
+---------
 
 <!-- Topics reviewed -->
 ## Topics reviewed
